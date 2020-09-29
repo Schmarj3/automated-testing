@@ -5,10 +5,9 @@ class Card
   attr_reader :value, :suit
 
   def initialize(value, suit)
-    @value = value
-    @suit = suit
-    
-
+    suits = [:hearts, :spades, :clubs, :diamonds]
+    @value = (value > 0 && value < 14) ? (value) : (raise ArgumentError)
+    @suit = (suits.include? suit) ? (suit) : (raise ArgumentError)
   end
 
   def to_s
